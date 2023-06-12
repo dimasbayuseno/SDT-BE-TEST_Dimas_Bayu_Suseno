@@ -4,7 +4,7 @@ require('moment-timezone');
 require('dotenv').config();
 
 // Create a new log
-async function createLog(userId, emailStatus) {
+createLog = async (userId, emailStatus) => {
     const connection = await db.getConnection();
     const timeStamp = moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss');
 
@@ -15,7 +15,7 @@ async function createLog(userId, emailStatus) {
     connection.release();
 }
 
-async function getLog() {
+getLog = async () => {
     const connection = await db.getConnection();
 
     const [rows] = await connection.execute(

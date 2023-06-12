@@ -2,7 +2,7 @@ const moment = require('moment');
 const userModel = require('../models/userModel');
 
 // Create a new user
-async function createUser(req, res) {
+createUser = async (req, res) => {
     try {
         const { firstName, lastName, birthday, location } = req.body;
 
@@ -17,7 +17,7 @@ async function createUser(req, res) {
 }
 
 // Update a user
-async function updateUser(req, res) {
+updateUser = async (req, res) => {
     try {
         const userId = req.params.id;
         const { firstName, lastName, birthday, location } = req.body;
@@ -34,7 +34,7 @@ async function updateUser(req, res) {
 }
 
 // Delete a user
-async function deleteUser(req, res) {
+deleteUser = async (req, res) => {
     try {
         const userId = req.params.id;
 

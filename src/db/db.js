@@ -11,7 +11,7 @@ const pool = mysql.createPool({
     multipleStatements: true
 });
 
-async function createTable() {
+createTable = async () => {
     const query = `
     CREATE TABLE IF NOT EXISTS users (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +33,7 @@ async function createTable() {
     }
 }
 
-async function createLogTable() {
+createLogTable = async () => {
     const query = `
     CREATE TABLE IF NOT EXISTS logs (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,7 +53,7 @@ async function createLogTable() {
     }
 }
 
-async function getConnection() {
+getConnection = async () => {
     try {
         const connection = await pool.getConnection();
         return connection;

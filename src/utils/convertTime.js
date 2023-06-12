@@ -2,7 +2,7 @@ const moment = require('moment');
 require('moment-timezone');
 
 
-function calculateScheduledTime(birthday, location) {
+calculateScheduledTime = (birthday, location) => {
 
 
     const birthdays = moment(birthday).tz(location);

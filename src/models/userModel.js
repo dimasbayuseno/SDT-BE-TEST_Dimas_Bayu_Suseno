@@ -3,7 +3,7 @@ const db = require('../db/db');
 const convert = require('../utils/convertTime');
 
 // Create a new user
-async function createUser(firstName, lastName, birthday, location) {
+createUser = async (firstName, lastName, birthday, location) => {
     const connection = await db.getConnection();
     const scheduledTime = convert.calculateScheduledTime(birthday, location);
 
@@ -16,7 +16,7 @@ async function createUser(firstName, lastName, birthday, location) {
 }
 
 // Update a user
-async function updateUser(userId, firstName, lastName, birthday, location) {
+updateUser = async (userId, firstName, lastName, birthday, location) => {
     const connection = await db.getConnection();
     const scheduledTime = convert.calculateScheduledTime(birthday, location);
 
@@ -34,7 +34,7 @@ async function deleteUser(userId) {
     connection.release();
 }
 
-async function getRowsByDateTime(dateWithoutYear, hour) {
+getRowsByDateTime = async (dateWithoutYear, hour) => {
     try {
         const connection = await db.getConnection();
         const query = 'SELECT * FROM users WHERE DATE_FORMAT(scheduled_time, "%m-%d %H") = ?';

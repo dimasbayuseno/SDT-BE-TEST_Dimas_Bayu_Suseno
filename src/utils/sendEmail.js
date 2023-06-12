@@ -9,7 +9,7 @@ const SUCCESS = 'sent'
 const FAILED = 'failed'
 
 // Send email via the email service API
-async function sendEmail(email, message, userId) {
+sendEmail = async (email, message, userId) => {
 
     try {
         const response = await axios.post('https://email-service.digitalenvision.com.au/send-email', {
@@ -24,7 +24,7 @@ async function sendEmail(email, message, userId) {
     }
 }
 
-async function sendPendingEmails() {
+sendPendingEmails = async () => {
     try {
         const currentDate = moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss');
         const startDate = moment().tz(process.env.TIMEZONE).startOf('day').format('YYYY-MM-DD 00:00:00');

@@ -3,7 +3,7 @@ const emailService = require('../utils/sendEmail')
 const cron = require('node-cron');
 const {messageFormat} = require("./messageFormat");
 
-function runScheduler() {
+runScheduler = () => {
     cron.schedule('0 * * * *', async () => {
         console.log('Scheduler is running...');
 
